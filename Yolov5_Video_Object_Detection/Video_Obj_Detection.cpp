@@ -4,7 +4,7 @@
 std::vector<std::string> load_class_list()
 {
     //Reading a list of class names from the file which in "Models/classes.txt" and keep them in a vector
-    // Sýnýf isimleri Models dosyasýndaki text file'dan alýnýr
+    // Sï¿½nï¿½f isimleri Models dosyasï¿½ndaki text file'dan alï¿½nï¿½r
 
     std::vector<std::string> class_list;
     std::ifstream ifs("Models/classes.txt");
@@ -17,10 +17,13 @@ std::vector<std::string> load_class_list()
 }
 
 
+
+
+
 void load_net(cv::dnn::Net& net, bool is_cuda)
 {
     //Loading yolov5s onnx model
-    // Eðitilmiþ Onnx modeli cekilir
+    // Eï¿½itilmiï¿½ Onnx modeli cekilir
 
     auto result = cv::dnn::readNet("Models/yolov5s.onnx");
     if (is_cuda)
@@ -39,7 +42,7 @@ void load_net(cv::dnn::Net& net, bool is_cuda)
 }
 
 //Color definitons and Constant assigments
-//Renk ve Sabit atamalarý
+//Renk ve Sabit atamalarï¿½
 const std::vector<cv::Scalar> colors = { cv::Scalar(255, 255, 0), cv::Scalar(0, 255, 0), cv::Scalar(0, 255, 255), cv::Scalar(255, 0, 0) };
 
 const float INPUT_WIDTH = 640.0;
@@ -73,10 +76,10 @@ void detect(cv::Mat& image, cv::dnn::Net& net, std::vector<Detection>& output, c
     Applies confidence and threshold filtering and performs non-maximum suppression to eliminate redundant detections
 
 
-    Girdi olarak verilen video medya üzerinde YOLOv5 modelini kullanarak nesne tespiti yapan tespit fonksiyonudur
-    Model girdisi için uygun bir blob'a (Binary Large Object"ýn kýsaltmasýdýr) dönüþtürür
-    Model çýkýþlarýný iþleyerek sýnýf kimliklerini, threshold'larý ve kapsayýcý kutu koordinatlarýný verir
-    Güven ve threshold deðeri filtrelemesi uygular ve gereksiz tespitleri eler
+    Girdi olarak verilen video medya ï¿½zerinde YOLOv5 modelini kullanarak nesne tespiti yapan tespit fonksiyonudur
+    Model girdisi iï¿½in uygun bir blob'a (Binary Large Object"ï¿½n kï¿½saltmasï¿½dï¿½r) dï¿½nï¿½ï¿½tï¿½rï¿½r
+    Model ï¿½ï¿½kï¿½ï¿½larï¿½nï¿½ iï¿½leyerek sï¿½nï¿½f kimliklerini, threshold'larï¿½ ve kapsayï¿½cï¿½ kutu koordinatlarï¿½nï¿½ verir
+    Gï¿½ven ve threshold deï¿½eri filtrelemesi uygular ve gereksiz tespitleri eler
     */
 
     cv::Mat blob;
@@ -120,7 +123,7 @@ void detect(cv::Mat& image, cv::dnn::Net& net, std::vector<Detection>& output, c
                 float y = data[1];
                 float w = data[2];
                 float h = data[3];
-                // Kapsayýcý kutunun x, y koordinatlarý; yükseklik ve geniþliði
+                // Kapsayï¿½cï¿½ kutunun x, y koordinatlarï¿½; yï¿½kseklik ve geniï¿½liï¿½i
                 // Width, height and x,y coordinates of bounding box
 
                 int left = int((x - 0.5 * w) * x_factor);
